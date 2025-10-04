@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Арина Сабидаева | Персональный фитнес-тренер в Иркутске</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2E8B57;
+            --primary-light: #90EE90;
+            --primary-dark: #1F6B42;
+            --accent: #FF6B6B;
+            --text: #2C3E50;
+            --text-light: #5D6D7E;
+            --background: #F8FDF8;
+            --white: #FFFFFF;
+            --shadow: 0 8px 30px rgba(0,0,0,0.08);
+            --radius: 16px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: linear-gradient(135deg, var(--background) 0%, #E8F5E9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--white), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Main Content */
+        main {
+            padding: 80px 0;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-dark);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .highlight-box {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--accent);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 60px 0;
+            border-radius: var(--radius);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .price-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .price-card.featured {
+            transform: scale(1.05);
+            border: 2px solid var(--accent);
+        }
+
+        .price-card.featured::before {
+            content: 'ПОПУЛЯРНЫЙ';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--white);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: var(--white);
+            padding: 50px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: inline-block;
+            padding: 12px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .price-card.featured {
+                transform: none;
+            }
+
+            .header-content {
+                padding: 0 20px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content fade-in">
+                <h1>Арина Сабидаева</h1>
+                <p class="subtitle">Персональный фитнес-тренер в Иркутске</p>
+                <p class="subtitle">Превращаю мечты в реальность через спорт и здоровый образ жизни</p>
+                <a href="#contact" class="cta-button">Начать тренироваться</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about">
+            <h2>Обо мне</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Сертифицированный фитнес-тренер из Иркутска с 6-летним опытом работы. Специализируюсь на персональных тренировках, коррекции веса и создании индивидуальных программ тренировок для жителей нашего города.</p>
+                    
+                    <div class="highlight-box" style="margin-top: 30px;">
+                        <h3>🏔️ Работаю в Иркутске и помогаю землякам!</h3>
+                        <p>Знаю особенности климата и менталитета сибиряков. Создаю программы, которые работают в условиях нашего региона.</p>
+                    </div>
+                </div>
+                
+                <div class="specialization">
+                    <h3>Моя специализация:</h3>
+                    <ul style="list-style: none; color: var(--text-light);">
+                        <li style="padding: 8px 0; border-bottom: 1px solid var(--primary-light);">✅ Коррекция веса и формирование красивой фигуры</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid var(--primary-light);">✅ Силовые тренировки и развитие выносливости</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid var(--primary-light);">✅ Функциональный тренинг для повседневной жизни</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid var(--primary-light);">✅ Йога и стретчинг для жителей мегаполиса</li>
+                        <li style="padding: 8px 0;">✅ Программы для занятых людей Иркутска</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Мои услуги</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">💪</div>
+                    <h3>Персональные тренировки</h3>
+                    <p>Индивидуальный подход с учетом ваших целей и особенностей организма. Работаю в лучших спортивных залах Иркутска.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">📱</div>
+                    <h3>Онлайн-коучинг</h3>
+                    <p>Дистанционные тренировки через видеосвязь с постоянной поддержкой и корректировкой программы.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">📝</div>
+                    <h3>Индивидуальные программы</h3>
+                    <p>Разработка персональных программ тренировок и питания для самостоятельных занятий.</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">👥</div>
+                    <h3>Групповые занятия</h3>
+                    <p>Тренировки в мини-группах в парках Иркутска и спортивных залах города.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="achievements">
+            <div class="container">
+                <h2 style="color: var(--white);">Мои достижения</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>80+</h3>
+                        <p>Довольных клиентов в Иркутске</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>6+</h3>
+                        <p>Лет успешной работы</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>95%</h3>
+                        <p>Клиентов достигают целей</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>1000+</h3>
+                        <p>Проведенных тренировок</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing">
+            <h2>Стоимость занятий</h2>
+            <div class="pricing-grid">
+                <div class="price-card fade-in">
+                    <h3>Разовое занятие</h3>
+                    <div class="price-amount">2 000 ₽</div>
+                    <ul style="list-style: none; text-align: left; margin: 20px 0;">
+                        <li style="padding: 8px 0;">✅ 60 минут тренировки</li>
+                        <li style="padding: 8px 0;">✅ Персональный подход</li>
+                        <li style="padding: 8px 0;">✅ Консультация по питанию</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="background: var(--primary);">Выбрать</a>
+                </div>
+                
+                <div class="price-card featured fade-in">
+                    <h3>Пакет 8 тренировок</h3>
+                    <div class="price-amount">14 000 ₽</div>
+                    <ul style="list-style: none; text-align: left; margin: 20px 0;">
+                        <li style="padding: 8px 0;">✅ 8 персональных тренировок</li>
+                        <li style="padding: 8px 0;">✅ Индивидуальная программа</li>
+                        <li style="padding: 8px 0;">✅ Полное сопровождение</li>
+                        <li style="padding: 8px 0;">✅ Корректировка питания</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Выбрать</a>
+                </div>
+                
+                <div class="price-card fade-in">
+                    <h3>Онлайн-коучинг</h3>
+                    <div class="price-amount">10 000 ₽</div>
+                    <ul style="list-style: none; text-align: left; margin: 20px 0;">
+                        <li style="padding: 8px 0;">✅ Месяц сопровождения</li>
+                        <li style="padding: 8px 0;">✅ 3 онлайн-тренировки в неделю</li>
+                        <li style="padding: 8px 0;">✅ Чат поддержки 24/7</li>
+                        <li style="padding: 8px 0;">✅ Персональная программа</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="background: var(--primary);">Выбрать</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Свяжитесь со мной</h2>
+            <div class="contact-content fade-in">
+                <div class="contact-info">
+                    <h3>Готовы начать меняться?</h3>
+                    <p>Напишите мне, и мы обсудим ваши цели и подберем оптимальную программу тренировок.</p>
+                    
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <div>
+                            <strong>Телефон</strong><br>
+                            <a href="tel:+79501234567" style="color: var(--primary); text-decoration: none;">+7 (950) 123-45-67</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:arina.sabidaeva@fitness-irk.ru" style="color: var(--primary); text-decoration: none;">arina.sabidaeva@fitness-irk.ru</a>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">VK</a>
+                        <a href="#" class="social-link">WhatsApp</a>
+                    </div>
+                </div>
+                
+                <div class="training-places">
+                    <h3>Места проведения тренировок:</h3>
+                    <ul style="list-style: none; color: var(--text-light); margin-top: 20px;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--primary-light);">📍 Фитнес-центр "Сибирь" (центр Иркутска)</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--primary-light);">📍 Спортивный комплекс "Байкал"</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--primary-light);">📍 Парк Парижской Коммуны (летние тренировки)</li>
+                        <li style="padding: 10px 0;">📍 Онлайн - для любого района Иркутска</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Арина Сабидаева - Персональный фитнес-тренер в Иркутске</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Иркутск, ул. Ленина, 15 (Фитнес-центр "Сибирь")</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
